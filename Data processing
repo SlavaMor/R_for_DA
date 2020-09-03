@@ -4,5 +4,8 @@
 typeof(my_data) # list
 
 my_data$new_column <- rep(NA, nrow(my_data)) # создаёт новый пустой столбец
-my_data$new_column <- NULL # удалить столбцы
+my_data$new_column <- NULL # удалить столбец(цы)
+
+### ОБРАЩЕНИЕ К ЧАСТЯМ СПИСКА ###
+
 
