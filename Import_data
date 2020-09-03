@@ -1,0 +1,15 @@
+##### Полезные функции для импорта данных #####
+setwd() # установить рабочую директорию (можно сделать вручную через интерфейс RStudio)
+# Например:
+setwd("C:/My Documents")
+
+getwd() # возвращает текущую рабочую директорию
+
+# Import CSV file
+my_data <- read.csv("evals.csv") 
+# or
+a <- read.table('evals.csv', header = TRUE, sep = ",", dec = ".")
+# or
+mydata <- read.csv('https://stepik.org/media/attachments/lesson/11481/evals.csv')
+
+
