@@ -9,6 +9,7 @@ df <- data.frame(Num = a, Nomin = b) # создаёт датафрейм из в
 
 typeof(my_data) # list
 my_data$new_column <- rep(NA, nrow(my_data)) # создаёт новый пустой столбец
+colnames(X) <- c('Name_1', 'Name_2') # для датафрейма Х задаёт имена переменных "Name_1" и "Name_2"
 my_data$new_column <- NULL # удалить столбец(цы)
 my_data_2 <- my_data[c(1:6),1:2] # создать датафрейм с помощью данных из другого df
 
