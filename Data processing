@@ -5,6 +5,8 @@
 
 a <- data.frame(Name = rep(NA, 10), Sex = rep(NA, 10), Age = rep(NA, 10))
 
+df <- data.frame(Num = a, Nomin = b) # создаёт датафрейм из векторов a и b
+
 typeof(my_data) # list
 my_data$new_column <- rep(NA, nrow(my_data)) # создаёт новый пустой столбец
 my_data$new_column <- NULL # удалить столбец(цы)
@@ -52,13 +54,13 @@ for (i in 1:nrow(mtcars)) {
   } else mtcars$new_var[i] <- 0
 }
 
-### ВЕКТОРА ###
+      ########### ВЕКТОРА ########### 
 
 # Создание пустого вектора
 b <- rep(1:5,3) # 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
 
 # Добавление новых элементов в вектор
-
+vector <-c(vector, new_element)
 
 
 
