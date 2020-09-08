@@ -1,1 +1,83 @@
-hist()
+##### БАЗОВЫЕ ФУНКЦИИ ВИЗУАЛИЗАЦИИ #####
+
+### hist() ### 
+строит гистограмму частот (frequency) (если freq = TRUE) или плотность вероятности каждого класса (если freq = FALSE)
+
+hist(df$disp, breaks = 10, ylab = 'Имя OY', xlab = 'Имя OX', 
+	col = 'green', 
+	main = 'Наименование гистограммы', 
+	freq = T)
+  
+### Ящик с усами (boxplot) ###
+
+boxplot(formula = disp ~ am, data = df, ylab = 'OY', xlab = 'OX')
+
+### Диаграмма рассеяния (scatter plot) ###
+plot(x = df$mpg, y = df$disp)
+
+
+plot(density(df$mpg), xlab = "MPG", main ="Density of MPG", 
+     col = "green", cex.lab = 1.3, cex.axis = 1.3)
+     
+plot(df$mpg, xlab = "MPG", main ="Density of MPG", 
+     col = "green", cex.lab = 1.3, cex.axis = 1.3)    
+
+plot(df$mpg, df$hp, xlab = "MPG", ylab ="HP" , main ="MPG and HP", pch = 3)
+# pch – обозначение точек на диаграмме рассеяния
+
+##########################################
+########## GGPLOT2 ВИЗУАЛИЗАЦИЯ ##########
+##########################################
+
+!!!!!!!!!!!! GGPLOT2 TUTORIAL !!!!!!!!!!!!
+https://ggplot2.tidyverse.org/reference/
+
+### Установка пакета ###
+install.packages("ggplot2")
+library(ggplot2)
+
+### ggplot() ###
+### geom_histogram ###
+ggplot(data = df, mapping = aes(x = mpg))+
+  geom_histogram(fill = 'white', col = 'black', binwidth = 3)
+
+ggplot(df, aes(x = mpg))+
+  geom_histogram(fill = "white", col = "black", binwidth = 2)+
+  xlab("Miles/(US) gallon")+
+  ylab("Count")+
+  ggtitle("MPG histogram")
+  
+ggplot(data = df, mapping = aes(x = mpg))+
+  geom_dotplot(fill = 'white', col = 'black', binwidth = 1)
+
+ggplot(df, aes(x = mpg, fill = am))+
+  geom_dotplot()+
+  xlab("Miles/(US) gallon")+
+  ylab("Count")+
+  scale_fill_discrete(name="Transmission type")+
+  ggtitle("MPG dotplot")
+  
+### GEOM_DENSITY ### - строит функцию плотности
+
+ggplot(df, aes(x = mpg))+
+  geom_density(fill = "grey")
+
+ggplot(df, aes(mpg, fill = am))+
+  geom_density()
+
+# fill = am, т.е. закрашивает относительно коробки передач
+
+# Чтобы цвета не накладывались друг на друга, можно добавить прозрачность:
+ggplot(df, aes(mpg, fill = am))+
+  geom_density(alpha = 0.3)
+  
+### GEOM_POINT() ### - диаграмма рассеяния
+ggplot(df, aes(x = mpg, y = hp, col = vs))+
+  geom_point(size = 3.5)
+
+##### CОХРАНЕНИЕ ВИЗУАЛИЗАЦИИ ДАННЫХ В ПЕРЕМЕННУЮ #####
+
+my_plot <- ggplot(data = df, mapping = aes(x = df$vs, y = df$mpg))
+my_plot + geom_boxplot()
+
+
