@@ -1,6 +1,6 @@
 ##### БАЗОВЫЕ ФУНКЦИИ ВИЗУАЛИЗАЦИИ #####
 
-### hist() ### 
+### HIST() ### 
 строит гистограмму частот (frequency) (если freq = TRUE) или плотность вероятности каждого класса (если freq = FALSE)
 
 hist(df$disp, breaks = 10, ylab = 'Имя OY', xlab = 'Имя OX', 
@@ -8,7 +8,7 @@ hist(df$disp, breaks = 10, ylab = 'Имя OY', xlab = 'Имя OX',
 	main = 'Наименование гистограммы', 
 	freq = T)
   
-### Ящик с усами (boxplot) ###
+### ЯЩИК С УСАМИ (BOXPLOT) ###
 
 boxplot(formula = disp ~ am, data = df, ylab = 'OY', xlab = 'OX')
 
@@ -24,6 +24,18 @@ plot(df$mpg, xlab = "MPG", main ="Density of MPG",
 
 plot(df$mpg, df$hp, xlab = "MPG", ylab ="HP" , main ="MPG and HP", pch = 3)
 # pch – обозначение точек на диаграмме рассеяния
+
+### BARPLOT() – СТОЛБЧАТАЯ ДИАГРАММА ###
+
+Barplot(table or matrix, legend.text = ‘ TRUE - добавляет легенду’, 
+	beside = ‘TRUE – отображает отдельно для каждой переменной столбец
+
+barplot(t1, legend.text = TRUE)
+
+barplot(t1, legend.text = TRUE, beside = TRUE)
+
+### MOSAICPLOT() - МОЗАИЧНАЯ ДИАГРАММА ###
+
 
 ##########################################
 ########## GGPLOT2 ВИЗУАЛИЗАЦИЯ ##########
@@ -79,5 +91,6 @@ ggplot(df, aes(x = mpg, y = hp, col = vs))+
 
 my_plot <- ggplot(data = df, mapping = aes(x = df$vs, y = df$mpg))
 my_plot + geom_boxplot()
+
 
 
